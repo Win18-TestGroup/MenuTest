@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace MenuTest
 {
@@ -11,7 +12,7 @@ namespace MenuTest
         public static void Start()
         {
             Console.Clear();
-            Console.WriteLine("##START####################");
+            Console.WriteLine("#### START ################");
             Console.WriteLine("# Press to choose         #");
             Console.WriteLine("# 1. Login                #");
             Console.WriteLine("# 2. Registry             #");
@@ -70,6 +71,7 @@ namespace MenuTest
 
                     }
                 } while (attempt < 4);
+                Menu.Start();
             }
             else
             {
@@ -91,7 +93,7 @@ namespace MenuTest
             Console.Write("Password:");
             string password = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine($"Your username is {userName}  and your password is {password}");
+            Console.WriteLine($"Your username is [{userName}] and your password is [{password}]");
             Console.WriteLine();
             Console.WriteLine("Is this correct? Y/N");
             string correct = Console.ReadLine();
@@ -122,7 +124,7 @@ namespace MenuTest
         public static void MainMenu()
         {
             Console.Clear();
-            Console.WriteLine("###########################");
+            Console.WriteLine("#### Main Menu ############");
             Console.WriteLine("# You Are in!             #");
             Console.WriteLine("# 1. Memberlist           #");
             Console.WriteLine("# 2. Quit                 #");
@@ -152,7 +154,16 @@ namespace MenuTest
                 Console.WriteLine($"Username: {element.Item1} are looking for LOVE!");
             }
             Console.WriteLine("-------------------------------------");
-            Console.WriteLine("Press any key to Continue... (Hint, 'any key' isint a special key, just press on a key on you fucking keybord");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to Continue... ");
+            Thread.Sleep(2000);
+            Console.WriteLine();
+            Console.WriteLine("Hint, 'any key' is not a special key");
+            Thread.Sleep(2000);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("just press a damn key on your keyboard");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadKey();
             Menu.MainMenu();
         }
