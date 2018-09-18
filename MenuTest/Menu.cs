@@ -50,18 +50,26 @@ namespace MenuTest
             Console.WriteLine();
             if (users.Exists(e => e.Item1 == userName))
             {
-                Console.Write("Password:");
-                string password = Console.ReadLine();
-                if (users.Exists(e => e.Item2 == password))
+                
+                int attempt = 1;
+                do
                 {
-                    Menu.MainMenu();
-                }
-                else
-                {
-                    Console.WriteLine("wrong password");
-                    Console.ReadKey();
-                    Menu.Start();
-                }
+                    Console.Write("Password:");
+                    string password = Console.ReadLine();
+                    attempt++;
+                    if (users.Exists(e => e.Item2 == password))
+                    {
+                        Menu.MainMenu();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("wrong password");
+                        Console.WriteLine($"You have {4 - attempt} attempt left!");
+                        
+
+                    }
+                } while (attempt < 4);
             }
             else
             {
@@ -135,6 +143,7 @@ namespace MenuTest
 
         public static void Memberlist()
         {
+            Console.Clear();
             foreach (var element in users)
             {
                 Console.WriteLine($"Username: {element.Item1} are looking for LOVE!");
