@@ -14,7 +14,7 @@ namespace MenuTest
             Console.WriteLine("##START####################");
             Console.WriteLine("# Press to choose         #");
             Console.WriteLine("# 1. Login                #");
-            Console.WriteLine("# 2. registry             #");
+            Console.WriteLine("# 2. Registry             #");
             Console.WriteLine("###########################");
 
             int choice = 0;
@@ -43,7 +43,7 @@ namespace MenuTest
         public static void Login()
         {
             Console.Clear();
-            Console.WriteLine("##LOGIN####################");
+            Console.WriteLine("#### LOGIN ####");
             Console.WriteLine();
             Console.Write("Username:");
             string userName = Console.ReadLine();
@@ -83,7 +83,7 @@ namespace MenuTest
         public static void Registy()
         {
             Console.Clear();
-            Console.WriteLine("##Registry#################");
+            Console.WriteLine("#### Registry ####");
             Console.WriteLine();
             Console.Write("Username:");
             string userName = Console.ReadLine();
@@ -100,11 +100,11 @@ namespace MenuTest
             {
                 users.Add(new Tuple<string, string>(userName, password));
 
-                foreach (var element in users)
-                {
-                    Console.WriteLine($"Username: {element.Item1} and the password is: {element.Item2}");
-                }
-                Console.ReadKey();
+                //foreach (var element in users)
+                //{
+                //    Console.WriteLine($"Username: {element.Item1} and the password is: {element.Item2}");
+                //}
+                //Console.ReadKey();
 
                 Menu.Start();
             }
@@ -113,7 +113,7 @@ namespace MenuTest
                 Console.Clear();
                 Console.WriteLine("Try again!");
                 Console.ReadKey();
-                Menu.Login();
+                Menu.Registy();
             }
 
 
@@ -144,12 +144,16 @@ namespace MenuTest
         public static void Memberlist()
         {
             Console.Clear();
+            Console.WriteLine("#### Memberlist ####");
+            Console.WriteLine();
+
             foreach (var element in users)
             {
                 Console.WriteLine($"Username: {element.Item1} are looking for LOVE!");
             }
-            Console.ReadKey();
+            Console.WriteLine("-------------------------------------");
             Console.WriteLine("Press any key to Continue... (Hint, 'any key' isint a special key, just press on a key on you fucking keybord");
+            Console.ReadKey();
             Menu.MainMenu();
         }
 
