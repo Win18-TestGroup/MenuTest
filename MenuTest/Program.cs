@@ -6,7 +6,7 @@ namespace MenuTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Menu.Start();
         }
     }
 }
